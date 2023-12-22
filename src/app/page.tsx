@@ -45,7 +45,7 @@ export default function Home() {
 
                 <ImageComponent image={image}/>
 
-                <form action={onSubmit as unknown as undefined} className="w-2/3 max-w-lg mt-8">
+                <form action={onSubmit as unknown as undefined} className="w-full max-w-lg mt-8">
                     <div className="mb-5">
                                 <textarea id="message" rows={4}
                                           value={prompt || ""}
