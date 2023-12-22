@@ -40,7 +40,7 @@ export default function Home() {
                     diffusion</h1>
                 <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-12 max-w-[700px]">Turn
                     words into visual
-                    wonders! Enter a prompt, and let Imaginify transform it into a unique piece of art using the Stable
+                    wonders! Enter a prompt and transform it into a unique piece of art using the Stable
                     Diffusion API. Unleash your creativity now!</p>
 
                 <ImageComponent image={image}/>
