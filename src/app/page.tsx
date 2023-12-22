@@ -43,10 +43,10 @@ export default function Home() {
 
                 {image ? <img src={image} width={512}/> :
                     (<div role="status"
-                          className="space-y-8 animate-pulse space-y-0 space-x-8 flex items-center">
+                          className="space-y-8 animate-pulse space-y-0 space-x-8 flex items-center w-[100%] max-w-[512px]">
                             <div
-                                className="flex items-center justify-center h-[512px] bg-gray-300 rounded w-[512px] max-w-[100%] dark:bg-gray-700">
-                                <svg className="w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
+                                className="flex relative items-center justify-center pb-[100%] bg-gray-300 rounded w-[100%] dark:bg-gray-700">
+                                <svg className="absolute left-[calc(50%_-_1.25rem)] top-[calc(50%_-_1.25rem)] w-10 h-10 text-gray-200 dark:text-gray-600" aria-hidden="true"
                                      xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                                     <path
                                         d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
@@ -59,11 +59,11 @@ export default function Home() {
                                 <textarea id="message" rows={4}
                                           value={prompt}
                                           onChange={(e) => setPrompt(e.target.value)}
-                                          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                                          className="outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-200 focus:ring-4 focus:ring-gray-200"
                                           placeholder="Enter an image description..." required></textarea>
                     </div>
                     <button type="submit"
-                            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                         Generate Image
                     </button>
                 </form>
