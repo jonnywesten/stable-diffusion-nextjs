@@ -12,7 +12,7 @@ export default function Home() {
         if (!loading) return
         callGenerate(prompt)
             .then((response) => {
-                setImage(response?.images[0])
+                setImage(response?.output)
             })
             .catch((err) => {
                 console.error(err)
@@ -23,6 +23,7 @@ export default function Home() {
     }, [loading])
     const onSubmit = async () => {
         setLoading(true)
+        setImage(null)
     }
 
     return (
@@ -40,7 +41,7 @@ export default function Home() {
                     wonders! Enter a prompt, and let Imaginify transform it into a unique piece of art using the Stable
                     Diffusion API. Unleash your creativity now!</p>
 
-                {image ? <img src={`data:image/jpeg;base64,${image}`} width={512}/> :
+                {image ? <img src={image} width={512}/> :
                     (<div role="status"
                           className="space-y-8 animate-pulse space-y-0 space-x-8 flex items-center">
                             <div
