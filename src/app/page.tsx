@@ -4,12 +4,12 @@ import {callGenerate} from './actions'
 import React from "react";
 
 export default function Home() {
-    const [prompt, setPrompt] = React.useState("")
-    const [image, setImage] = React.useState("")
+    const [prompt, setPrompt] = React.useState<string | null>()
+    const [image, setImage] = React.useState<string | null>()
     const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
-        if (!loading) return
+        if (!loading || !prompt) return
         callGenerate(prompt)
             .then((response) => {
                 setImage(response?.output)
@@ -57,7 +57,7 @@ export default function Home() {
                 <form action={onSubmit as unknown as undefined} className="w-2/3 max-w-lg mt-8">
                     <div className="mb-5">
                                 <textarea id="message" rows={4}
-                                          value={prompt}
+                                          value={prompt || ""}
                                           onChange={(e) => setPrompt(e.target.value)}
                                           className="outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-200 focus:ring-4 focus:ring-gray-200"
                                           placeholder="Enter an image description..." required></textarea>
