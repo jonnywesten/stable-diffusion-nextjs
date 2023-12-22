@@ -38,7 +38,7 @@ export default function Home() {
                 <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span
                     className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">NextJS </span>Stable
                     diffusion</h1>
-                <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-12 max-w-[700px]">Turn
+                <p className="text-lg mt-2 text-center font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-12 max-w-[700px]">Turn
                     words into visual
                     wonders! Enter a prompt and transform it into a unique piece of art using the Stable
                     Diffusion API. Unleash your creativity now!</p>
