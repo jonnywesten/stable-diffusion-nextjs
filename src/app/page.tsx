@@ -13,6 +13,7 @@ export default function Home() {
     React.useEffect(() => {
         if (!loading || !prompt) return
 
+        // calling experimental actions within onSubmit doesn't work yet
         callGenerate(prompt)
             .then((response) => {
                 setImage(response?.output)
@@ -39,23 +40,20 @@ export default function Home() {
                     className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">NextJS </span>Stable
                     diffusion</h1>
                 <p className="text-lg mt-2 text-center font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-12 max-w-[700px]">Turn
-                    words into visual
-                    wonders! Enter a prompt and transform it into a unique piece of art using the Stable
-                    Diffusion API. Unleash your creativity now!</p>
+                    words into visual wonders! Enter a prompt and transform it into a unique piece of art using the
+                    Stable Diffusion API. Unleash your creativity now!</p>
 
                 <ImageComponent image={image}/>
 
                 <form action={onSubmit as unknown as undefined} className="w-full max-w-lg mt-8">
-                    <div className="mb-5">
-                                <textarea id="message" rows={4}
-                                          value={prompt || ""}
-                                          onChange={(e) => setPrompt(e.target.value)}
-                                          className="outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50
+                    <textarea id="message" rows={4}
+                              value={prompt || ""}
+                              onChange={(e) => setPrompt(e.target.value)}
+                              className="outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50
                                           rounded-lg border border-gray-200 focus:ring-4 focus:ring-gray-200"
-                                          placeholder="Enter an image description..." required></textarea>
-                    </div>
+                              placeholder="Enter an image description..." required></textarea>
                     <button type="submit"
-                            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none
+                            className="py-2.5 mt-5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none
                             bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-4
                             focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400
                             dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
