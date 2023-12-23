@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ImageComponent({image}: { image: string | null }) {
+export default function ImageComponent({image}: { image?: string }) {
 
     return image ? <img src={image} width={512}/> :
         (<div role="status"

@@ -5,10 +5,12 @@ import React from "react";
 import ImageComponent from "@/app/components/image";
 import LoadingSpinnerComponent from "@/app/components/loading-spinner";
 import ThemeToggle from "@/app/components/theme-toggle";
+import AlertComponent from "@/app/components/alert";
 
 export default function Home() {
     const [prompt, setPrompt] = React.useState<string | null>()
-    const [image, setImage] = React.useState<string | null>(null)
+    const [errorMessage, setErrorMessage] = React.useState<string | undefined>()
+    const [image, setImage] = React.useState<string | undefined>(null)
     const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
@@ -17,9 +19,10 @@ export default function Home() {
         // calling experimental actions within onSubmit doesn't work yet
         callGenerate(prompt)
             .then((response) => {
-                setImage(response?.output)
+                setImage(response)
             })
             .catch((err) => {
+                setErrorMessage(err.message)
                 console.error(err)
             })
             .finally(() => {
@@ -31,6 +34,7 @@ export default function Home() {
     const onSubmit = async () => {
         setLoading(true)
         setImage(null)
+        setErrorMessage(null)
     }
 
     return (
@@ -45,6 +49,7 @@ export default function Home() {
                     words into visual wonders! Enter a prompt and transform it into a unique piece of art using the
                     Stable Diffusion API. Unleash your creativity now!</p>
 
+                <AlertComponent message={errorMessage}/>
                 <ImageComponent image={image}/>
 
                 <form action={onSubmit as unknown as undefined} className="w-full max-w-lg mt-8">

@@ -21,5 +21,9 @@ export async function callGenerate(prompt: string) {
 
     const response = await axios.post(url, payload, {headers})
 
-    return response?.data;
+    if(!response?.data?.output){
+        throw new Error(response?.data?.error)
+    }
+
+    return response.data.output;
 }
