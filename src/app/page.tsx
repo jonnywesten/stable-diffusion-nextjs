@@ -10,7 +10,7 @@ import AlertComponent from "@/app/components/alert";
 export default function Home() {
     const [prompt, setPrompt] = React.useState<string | null>()
     const [errorMessage, setErrorMessage] = React.useState<string | undefined>()
-    const [image, setImage] = React.useState<string | undefined>(null)
+    const [image, setImage] = React.useState<string | undefined>()
     const [loading, setLoading] = React.useState(false)
 
     React.useEffect(() => {
@@ -33,8 +33,8 @@ export default function Home() {
 
     const onSubmit = async () => {
         setLoading(true)
-        setImage(null)
-        setErrorMessage(null)
+        setImage(undefined)
+        setErrorMessage(undefined)
     }
 
     return (
