@@ -4,6 +4,7 @@ import {callGenerate} from './actions'
 import React from "react";
 import ImageComponent from "@/app/components/image";
 import LoadingSpinnerComponent from "@/app/components/loading-spinner";
+import ThemeToggle from "@/app/components/theme-toggle";
 
 export default function Home() {
     const [prompt, setPrompt] = React.useState<string | null>()
@@ -35,10 +36,11 @@ export default function Home() {
     return (
         <>
             <LoadingSpinnerComponent loading={loading}/>
+            <ThemeToggle/>
             <main className="flex min-h-screen flex-col items-center justify-between p-4 md:p-24">
                 <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span
                     className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">NextJS </span>Stable
-                    diffusion</h1>
+                    Diffusion</h1>
                 <p className="text-lg mt-2 text-center font-normal text-gray-500 lg:text-xl dark:text-gray-400 mb-12 max-w-[700px]">Turn
                     words into visual wonders! Enter a prompt and transform it into a unique piece of art using the
                     Stable Diffusion API. Unleash your creativity now!</p>
@@ -50,7 +52,9 @@ export default function Home() {
                               value={prompt || ""}
                               onChange={(e) => setPrompt(e.target.value)}
                               className="outline-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50
-                                          rounded-lg border border-gray-200 focus:ring-4 focus:ring-gray-200"
+                                          rounded-lg border border-gray-200 focus:ring-4 focus:ring-gray-200
+                                          dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400
+                            dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                               placeholder="Enter an image description..." required></textarea>
                     <button type="submit"
                             className="py-2.5 mt-5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none
