@@ -4,7 +4,7 @@ export default function AlertComponent({message}: { message?: string }) {
 
     return message ?
         <div
-            className="flex items-center p-4 mb-10 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800 max-w-[700px]"
+            className="flex w-full items-center break-all p-4 mb-10 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800 max-w-[700px]"
             role="alert">
             <svg className="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                  fill="currentColor" viewBox="0 0 20 20">

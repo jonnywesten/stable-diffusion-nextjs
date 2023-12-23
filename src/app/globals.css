@@ -8,9 +8,9 @@ body {
   background: linear-gradient(
           to bottom,
           transparent,
-          rgb(255,255,255)
+          rgb(214, 219, 220)
   )
-  rgb(214, 219, 220);
+  rgb(255,255,255);
 }
 
 html.dark body {
@@ -20,7 +20,7 @@ html.dark body {
           transparent,
           rgb(0,0,0)
   )
-  rgb(22,22,22);
+  rgb(0,0,0);
 }
 
 
